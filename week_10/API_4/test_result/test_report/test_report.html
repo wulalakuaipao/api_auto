@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>py14 0313测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">py14 0313测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> 霹雳无敌的oppa</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-03-18 20:27:20</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.194247</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 8，通过 2，失败 1，错误 5，通过率= 25.00%</p>
+
+<p class='description'>py14 0313测试报告</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 25.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 8 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>API_4.test_cases.test_register.TestCases</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">5</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',5)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='ft1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cases_1: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse in" align="left">
+    <pre>
+    
+ft1_1: [2019-03-18 20:27:20,247]-[INFO]-[日志信息]:-------正在测试Register模块里面第1条测试用例：正常注册
+[2019-03-18 20:27:20,256]-[INFO]-[日志信息]:测试数据是：{'Method': 'get', 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'注册成功'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Title': '正常注册', 'Params': "{'mobilephone':'15096098891','pwd':'123456'}", 'CaseId': 1, 'Module': 'Register'}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_register.py", line 38, in test_cases
+    resp=HttpRequest().http_request(method,url,param)
+TypeError: http_request() missing 1 required positional argument: 'cookies'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cases_2: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse in" align="left">
+    <pre>
+    
+ft1_2: [2019-03-18 20:27:20,269]-[INFO]-[日志信息]:-------正在测试Register模块里面第2条测试用例：不输入手机号
+[2019-03-18 20:27:20,276]-[INFO]-[日志信息]:测试数据是：{'Method': 'post', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'手机号不能为空'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Title': '不输入手机号', 'Params': "{'mobilephone':'','pwd':'123456'}", 'CaseId': 2, 'Module': 'Register'}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_register.py", line 38, in test_cases
+    resp=HttpRequest().http_request(method,url,param)
+TypeError: http_request() missing 1 required positional argument: 'cookies'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cases_3: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_3'>错误</button>
+    <div id='div_ft1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_3'>错误</button>
+    <div id='div_ft1_3' class="collapse in" align="left">
+    <pre>
+    
+ft1_3: [2019-03-18 20:27:20,288]-[INFO]-[日志信息]:-------正在测试Register模块里面第3条测试用例：不输入密码
+[2019-03-18 20:27:20,297]-[INFO]-[日志信息]:测试数据是：{'Method': 'get', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'密码不能为空'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Title': '不输入密码', 'Params': "{'mobilephone':'18688775656','pwd':''}", 'CaseId': 3, 'Module': 'Register'}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_register.py", line 38, in test_cases
+    resp=HttpRequest().http_request(method,url,param)
+TypeError: http_request() missing 1 required positional argument: 'cookies'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cases_4: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse in" align="left">
+    <pre>
+    
+ft1_4: [2019-03-18 20:27:20,307]-[INFO]-[日志信息]:-------正在测试Register模块里面第4条测试用例：输入已存在的手机号
+[2019-03-18 20:27:20,319]-[INFO]-[日志信息]:测试数据是：{'Method': 'post', 'ExpectedResult': "{'status':0,'code':'20110','data': None,'msg':'手机号码已被注册'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Title': '输入已存在的手机号', 'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'CaseId': 4, 'Module': 'Register'}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_register.py", line 38, in test_cases
+    resp=HttpRequest().http_request(method,url,param)
+TypeError: http_request() missing 1 required positional argument: 'cookies'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cases_5: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_5'>错误</button>
+    <div id='div_ft1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_5'>错误</button>
+    <div id='div_ft1_5' class="collapse in" align="left">
+    <pre>
+    
+ft1_5: [2019-03-18 20:27:20,335]-[INFO]-[日志信息]:-------正在测试Register模块里面第5条测试用例：输入错误的手机号
+[2019-03-18 20:27:20,343]-[INFO]-[日志信息]:测试数据是：{'Method': 'get', 'ExpectedResult': "{'status':0,'code':'20109','data': None,'msg':'手机号码格式不正确'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Title': '输入错误的手机号', 'Params': "{'mobilephone':'186887756569','pwd':'123456'}", 'CaseId': 5, 'Module': 'Register'}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_register.py", line 38, in test_cases
+    resp=HttpRequest().http_request(method,url,param)
+TypeError: http_request() missing 1 required positional argument: 'cookies'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>API_4.test_cases.test_recharge.TestCases</td>
+    <td class="text-center">3</td>
+    <td class="text-center">2</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',3)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_1: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in" align="left">
+    <pre>
+    
+pt2_1: [2019-03-18 20:27:20,357]-[INFO]-[日志信息]:-------正在测试Login模块里面第1条测试用例：正常登录
+[2019-03-18 20:27:20,365]-[INFO]-[日志信息]:测试数据是：{'Method': 'get', 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'登录成功'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'Title': '正常登录', 'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'CaseId': 1, 'Module': 'Login'}
+[2019-03-18 20:27:20,710]-[INFO]-[日志信息]:实际结果：{'data': None, 'msg': '登录成功', 'status': 1, 'code': '10001'}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_2' class='none'>
+    <td class='failCase'><div class='testcase'>test_cases_2: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_2'>失败</button>
+    <div id='div_ft2_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_2'>失败</button>
+    <div id='div_ft2_2' class="collapse in" align="left">
+    <pre>
+    
+ft2_2: [2019-03-18 20:27:20,722]-[INFO]-[日志信息]:-------正在测试recharge模块里面第2条测试用例：正常充值
+[2019-03-18 20:27:20,730]-[INFO]-[日志信息]:测试数据是：{'Method': 'post', 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'登录成功'}", 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/recharge', 'Title': '正常充值', 'Params': "{'mobilephone':'18688775656','amount':'1000'}", 'CaseId': 2, 'Module': 'recharge'}
+[2019-03-18 20:27:20,817]-[ERROR]-[日志信息]:http请求测试用例出错了，错误是：{'data': None, 'msg': '登录成功', 'status': 1, 'code': '10001'} != {'data': {'pwd': 'E10ADC3949BA59ABBE56E057F20F883E[183 chars]001'}
+- {'code': '10001', 'data': None, 'msg': '登录成功', 'status': 1}
++ {'code': '10001',
++  'data': {'id': 1123888,
++           'leaveamount': '152000.00',
++           'mobilephone': '18688775656',
++           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
++           'regname': '小蜜蜂',
++           'regtime': '2019-03-11 20:57:41.0',
++           'type': '1'},
++  'msg': '充值成功',
++  'status': 1}
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_recharge.py", line 50, in test_cases
+    raise e#处理完异常之后  不要留在家里 要抛出去！ raise e
+  File "D:\2018Python自动化课件&amp;代码\code\python_14\API_4\test_cases\test_recharge.py", line 45, in test_cases
+    self.assertEqual(eval(case['ExpectedResult']),resp.json())
+AssertionError: {'data': None, 'msg': '登录成功', 'status': 1, 'code': '10001'} != {'data': {'pwd': 'E10ADC3949BA59ABBE56E057F20F883E[183 chars]001'}
+- {'code': '10001', 'data': None, 'msg': '登录成功', 'status': 1}
++ {'code': '10001',
++  'data': {'id': 1123888,
++           'leaveamount': '152000.00',
++           'mobilephone': '18688775656',
++           'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
++           'regname': '小蜜蜂',
++           'regtime': '2019-03-11 20:57:41.0',
++           'type': '1'},
++  'msg': '充值成功',
++  'status': 1}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_cases_3: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse in" align="left">
+    <pre>
+    
+pt2_3: [2019-03-18 20:27:21,079]-[INFO]-[日志信息]:-------正在测试recharge模块里面第3条测试用例：不输入充值金额
+[2019-03-18 20:27:21,097]-[INFO]-[日志信息]:测试数据是：{'Method': 'post', 'ExpectedResult': '{"status":0,"code":"20115","data":None,"msg":"请输入金额"}', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/recharge', 'Title': '不输入充值金额', 'Params': "{'mobilephone':'18688775656','amount':''}", 'CaseId': 3, 'Module': 'recharge'}
+[2019-03-18 20:27:21,420]-[INFO]-[日志信息]:实际结果：{'data': None, 'msg': '请输入金额', 'status': 0, 'code': '20115'}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>8</td>
+    <td>2</td>
+    <td>1</td>
+    <td>5</td>
+    <td>通过率：25.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

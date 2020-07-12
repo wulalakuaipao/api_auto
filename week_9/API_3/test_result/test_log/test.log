@@ -1,0 +1,54 @@
+[2019-03-13 21:11:27,471]-[INFO]-[日志信息]:-------正在测试Register模块里面第1条测试用例：正常注册
+[2019-03-13 21:11:27,479]-[INFO]-[日志信息]:测试数据是：{'CaseId': 1, 'Title': '正常注册', 'Params': "{'mobilephone':'18688775657','pwd':'123456'}", 'Module': 'Register', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'注册成功'}"}
+[2019-03-13 21:11:27,550]-[ERROR]-[日志信息]:http请求测试用例出错了，错误是：{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'} != {'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+- {'code': '10001', 'data': None, 'msg': '注册成功', 'status': 1}
+?             ---                           --             ^
+
++ {'code': '20110', 'data': None, 'msg': '手机号码已被注册', 'status': 0}
+?           +++                           ++++++               ^
+
+[2019-03-13 21:11:27,797]-[INFO]-[日志信息]:-------正在测试Register模块里面第2条测试用例：不输入手机号
+[2019-03-13 21:11:27,805]-[INFO]-[日志信息]:测试数据是：{'CaseId': 2, 'Title': '不输入手机号', 'Params': "{'mobilephone':'','pwd':'123456'}", 'Module': 'Register', 'Method': 'post', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'手机号不能为空'}"}
+[2019-03-13 21:11:28,267]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+[2019-03-13 21:11:28,283]-[INFO]-[日志信息]:-------正在测试Register模块里面第3条测试用例：不输入密码
+[2019-03-13 21:11:28,290]-[INFO]-[日志信息]:测试数据是：{'CaseId': 3, 'Title': '不输入密码', 'Params': "{'mobilephone':'18688775656','pwd':''}", 'Module': 'Register', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'密码不能为空'}"}
+[2019-03-13 21:11:28,633]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+[2019-03-13 21:11:28,652]-[INFO]-[日志信息]:-------正在测试Register模块里面第4条测试用例：输入已存在的手机号
+[2019-03-13 21:11:28,668]-[INFO]-[日志信息]:测试数据是：{'CaseId': 4, 'Title': '输入已存在的手机号', 'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'Module': 'Register', 'Method': 'post', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'ExpectedResult': "{'status':0,'code':'20110','data': None,'msg':'手机号码已被注册'}"}
+[2019-03-13 21:11:28,998]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+[2019-03-13 21:11:29,009]-[INFO]-[日志信息]:-------正在测试Register模块里面第5条测试用例：输入错误的手机号
+[2019-03-13 21:11:29,022]-[INFO]-[日志信息]:测试数据是：{'CaseId': 5, 'Title': '输入错误的手机号', 'Params': "{'mobilephone':'186887756569','pwd':'123456'}", 'Module': 'Register', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'ExpectedResult': "{'status':0,'code':'20109','data': None,'msg':'手机号码格式不正确'}"}
+[2019-03-13 21:11:29,362]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+[2019-03-13 21:11:29,370]-[INFO]-[日志信息]:-------正在测试Login模块里面第6条测试用例：正常登录
+[2019-03-13 21:11:29,379]-[INFO]-[日志信息]:测试数据是：{'CaseId': 6, 'Title': '正常登录', 'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'Module': 'Login', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'登录成功'}"}
+[2019-03-13 21:11:29,692]-[INFO]-[日志信息]:实际结果：{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+[2019-03-13 21:11:29,704]-[INFO]-[日志信息]:-------正在测试Login模块里面第7条测试用例：不输入手机号
+[2019-03-13 21:11:29,714]-[INFO]-[日志信息]:测试数据是：{'CaseId': 7, 'Title': '不输入手机号', 'Params': "{'mobilephone':'','pwd':'123456'}", 'Module': 'Login', 'Method': 'post', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'手机号不能为空'}"}
+[2019-03-13 21:11:30,010]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+[2019-03-13 21:11:30,020]-[INFO]-[日志信息]:-------正在测试Login模块里面第8条测试用例：不输入密码
+[2019-03-13 21:11:30,027]-[INFO]-[日志信息]:测试数据是：{'CaseId': 8, 'Title': '不输入密码', 'Params': "{'mobilephone':'18688775656','pwd':''}", 'Module': 'Login', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'密码不能为空'}"}
+[2019-03-13 21:11:30,321]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+[2019-03-13 21:11:30,334]-[INFO]-[日志信息]:-------正在测试Login模块里面第9条测试用例：输入错误的手机号
+[2019-03-13 21:11:30,343]-[INFO]-[日志信息]:测试数据是：{'CaseId': 9, 'Title': '输入错误的手机号', 'Params': "{'mobilephone':'186887756569','pwd':'123456'}", 'Module': 'Login', 'Method': 'post', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'ExpectedResult': "{'status':0,'code':'20111','data': None,'msg':'用户名或密码错误'}"}
+[2019-03-13 21:11:30,630]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+[2019-03-13 21:11:30,639]-[INFO]-[日志信息]:-------正在测试Login模块里面第10条测试用例：输入错误的密码
+[2019-03-13 21:11:30,650]-[INFO]-[日志信息]:测试数据是：{'CaseId': 10, 'Title': '输入错误的密码', 'Params': "{'mobilephone':'18688775656','pwd':'1234567'}", 'Module': 'Login', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'ExpectedResult': "{'status':0,'code':'20111','data': None,'msg':'用户名或密码错误'}"}
+[2019-03-13 21:11:30,954]-[INFO]-[日志信息]:实际结果：{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+[2019-03-14 10:25:34,704]-[INFO]-[日志信息]:-------正在测试Register模块里面第2条测试用例：不输入手机号
+[2019-03-14 10:25:34,728]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'','pwd':'123456'}", 'CaseId': 2, 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'手机号不能为空'}", 'Title': '不输入手机号', 'Module': 'Register', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register', 'Method': 'post'}
+[2019-03-14 10:25:34,982]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '20103', 'status': 0, 'msg': '手机号不能为空'}
+[2019-03-14 10:25:34,987]-[INFO]-[日志信息]:-------正在测试Login模块里面第6条测试用例：正常登录
+[2019-03-14 10:25:34,994]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'CaseId': 6, 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'登录成功'}", 'Title': '正常登录', 'Module': 'Login', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'Method': 'get'}
+[2019-03-14 10:25:35,171]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '10001', 'status': 1, 'msg': '登录成功'}
+[2019-03-14 10:25:35,176]-[INFO]-[日志信息]:-------正在测试Login模块里面第8条测试用例：不输入密码
+[2019-03-14 10:25:35,182]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'18688775656','pwd':''}", 'CaseId': 8, 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'密码不能为空'}", 'Title': '不输入密码', 'Module': 'Login', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login', 'Method': 'get'}
+[2019-03-14 10:25:35,367]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '20103', 'status': 0, 'msg': '密码不能为空'}
+[2019-03-14 10:25:56,477]-[INFO]-[日志信息]:-------正在测试Register模块里面第2条测试用例：不输入手机号
+[2019-03-14 10:25:56,484]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'','pwd':'123456'}", 'CaseId': 2, 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'手机号不能为空'}", 'Module': 'Register', 'Title': '不输入手机号', 'Method': 'post', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/register'}
+[2019-03-14 10:25:56,685]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '20103', 'msg': '手机号不能为空', 'status': 0}
+[2019-03-14 10:25:56,694]-[INFO]-[日志信息]:-------正在测试Login模块里面第6条测试用例：正常登录
+[2019-03-14 10:25:56,702]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'18688775656','pwd':'123456'}", 'CaseId': 6, 'ExpectedResult': "{'status':1,'code':'10001','data': None,'msg':'登录成功'}", 'Module': 'Login', 'Title': '正常登录', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login'}
+[2019-03-14 10:25:56,919]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '10001', 'msg': '登录成功', 'status': 1}
+[2019-03-14 10:25:56,929]-[INFO]-[日志信息]:-------正在测试Login模块里面第8条测试用例：不输入密码
+[2019-03-14 10:25:56,935]-[INFO]-[日志信息]:测试数据是：{'Params': "{'mobilephone':'18688775656','pwd':''}", 'CaseId': 8, 'ExpectedResult': "{'status':0,'code':'20103','data': None,'msg':'密码不能为空'}", 'Module': 'Login', 'Title': '不输入密码', 'Method': 'get', 'Url': 'http://47.107.168.87:8080/futureloan/mvc/api/member/login'}
+[2019-03-14 10:25:57,109]-[INFO]-[日志信息]:实际结果：{'data': None, 'code': '20103', 'msg': '密码不能为空', 'status': 0}

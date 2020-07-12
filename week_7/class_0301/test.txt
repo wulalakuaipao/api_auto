@@ -1,0 +1,49 @@
+test_001 (week_7.class_0301.class_unittest_learn.TestAdd) ... FAIL
+test_002 (week_7.class_0301.class_unittest_learn.TestAdd) ... FAIL
+test_003 (week_7.class_0301.class_unittest_learn.TestAdd) ... FAIL
+test_004 (week_7.class_0301.class_unittest_learn.TestAdd) ... FAIL
+
+======================================================================
+FAIL: test_001 (week_7.class_0301.class_unittest_learn.TestAdd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 43, in test_001
+    raise e
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 40, in test_001
+    self.assertEqual(expected,c)
+AssertionError: 4 != 3
+
+======================================================================
+FAIL: test_002 (week_7.class_0301.class_unittest_learn.TestAdd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 55, in test_002
+    raise e
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 52, in test_002
+    self.assertEqual(expected,c)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_003 (week_7.class_0301.class_unittest_learn.TestAdd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 67, in test_003
+    raise e
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 64, in test_003
+    self.assertEqual(expected,c)
+AssertionError: -2 != -3
+
+======================================================================
+FAIL: test_004 (week_7.class_0301.class_unittest_learn.TestAdd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 79, in test_004
+    raise e
+  File "D:\2018Python自动化课件&代码\code\python_14\week_7\class_0301\class_unittest_learn.py", line 76, in test_004
+    self.assertEqual(expected,c)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (failures=4)
